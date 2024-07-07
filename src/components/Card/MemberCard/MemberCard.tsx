@@ -1,8 +1,9 @@
 import { MemberInfoType } from "../../AllMembers/MemberList";
-import { FaLinkedin, FaFacebook, FaGithub, FaWhatsapp, FaEdit, FaTrash } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaGithub, FaWhatsapp, FaTrash } from "react-icons/fa";
 import { useState } from "react";
+import EditMember from "../../AllMembers/EditMember";
 
-type MemberCardProps = {
+export type MemberCardProps = {
   memberInfo: MemberInfoType;
 };
 
@@ -32,25 +33,25 @@ const MemberCard = ({ memberInfo}: MemberCardProps) => {
         <div className="flex justify-center space-x-4 mt-4">
           <a href={linkedin} target="_blank" rel="noopener noreferrer">
             <FaLinkedin
-              className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125"
+              className="text-red-600 hover:text-blue-700 hover:rotate-[360deg] duration-1000 hover:scale-125"
               size={24}
             />
           </a>
           <a href={facebook} target="_blank" rel="noopener noreferrer">
             <FaFacebook
-              className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125"
+              className="text-red-600 hover:text-blue-600 hover:rotate-[360deg] duration-1000 hover:scale-125"
               size={24}
             />
           </a>
           <a href={github} target="_blank" rel="noopener noreferrer">
             <FaGithub
-              className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125"
+              className="text-red-600 hover:text-gray-800 hover:rotate-[360deg] duration-1000 hover:scale-125"
               size={24}
             />
           </a>
           <a href={whatsapp} target="_blank" rel="noopener noreferrer">
             <FaWhatsapp
-              className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125"
+              className="text-red-600 hover:text-green-600 hover:rotate-[360deg] duration-1000 hover:scale-125"
               size={24}
             />
           </a>
@@ -59,11 +60,8 @@ const MemberCard = ({ memberInfo}: MemberCardProps) => {
 
       {isHovered && (
         <div className="absolute top-4 right-4 flex space-x-2">
-          <FaEdit
-            title="Update Info"
-            className="text-white hover:text-gray-200 cursor-pointer"
-            size={20}
-          />
+          <EditMember memberInfo={memberInfo} />
+
           <FaTrash
             title="Delete Member"
             className="text-white hover:text-gray-200 cursor-pointer"

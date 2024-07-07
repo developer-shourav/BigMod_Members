@@ -37,7 +37,11 @@ const EditMember = ({ memberInfo }: MemberCardProps) => {
         title="Edit Member"
       />
       <Transition appear show={isOpenModal} as={Fragment}>
-        <Dialog as="div" className="relative z-10" onClose={() => setIsOpenModal(false)}>
+        <Dialog
+          as="div"
+          className="relative z-10"
+          onClose={() => setIsOpenModal(false)}
+        >
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -62,10 +66,16 @@ const EditMember = ({ memberInfo }: MemberCardProps) => {
                 leaveTo="opacity-0 scale-95"
               >
                 <Dialog.Panel className="w-full max-w-[33rem] transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
-                  <Dialog.Title as="h3" className="text-2xl mb-4 font-bold leading-6 text-gray-900">
+                  <Dialog.Title
+                    as="h3"
+                    className="text-2xl mb-4 font-bold leading-6 text-gray-900"
+                  >
                     <div className="flex justify-between items-center">
                       <p>Update info</p>
-                      <span onClick={() => setIsOpenModal(false)} className="border-none">
+                      <span
+                        onClick={() => setIsOpenModal(false)}
+                        className="border-none"
+                      >
                         <IoMdClose className="border-none text-red-500 text-2xl" />
                       </span>
                     </div>
@@ -199,11 +209,12 @@ const EditMember = ({ memberInfo }: MemberCardProps) => {
                           onChange={handleInputChange}
                         />
                       </div>
-                    </div>
-                    <div className="mt-7 ms-4">
-                      <button type="submit" className="btn btn-sm md:btn-md">
-                        Update Profile
-                      </button>
+
+                      <div className="mt-8 ms-3">
+                        <button type="submit" className="btn btn-sm md:btn-md">
+                          Update Profile
+                        </button>
+                      </div>
                     </div>
                   </form>
                   {/* Form --------------------------------------------------- */}
@@ -213,7 +224,6 @@ const EditMember = ({ memberInfo }: MemberCardProps) => {
           </div>
         </Dialog>
       </Transition>
-      
     </>
   );
 };

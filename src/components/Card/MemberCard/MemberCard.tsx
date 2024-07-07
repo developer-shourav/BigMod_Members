@@ -1,7 +1,8 @@
 import { MemberInfoType } from "../../AllMembers/MemberList";
-import { FaLinkedin, FaFacebook, FaGithub, FaWhatsapp, FaTrash } from "react-icons/fa";
+import { FaLinkedin, FaFacebook, FaGithub, FaWhatsapp} from "react-icons/fa";
 import { useState } from "react";
 import EditMember from "../../AllMembers/EditMember";
+import DeleteMember from "../../AllMembers/DeleteMember";
 
 export type MemberCardProps = {
   memberInfo: MemberInfoType;
@@ -9,7 +10,7 @@ export type MemberCardProps = {
 
 const MemberCard = ({ memberInfo}: MemberCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
-  const {image, name, designation, email, linkedin, facebook, github, whatsapp } = memberInfo;
+  const {id, image, name, designation, email, linkedin, facebook, github, whatsapp } = memberInfo;
 
   return (
     <div
@@ -58,15 +59,13 @@ const MemberCard = ({ memberInfo}: MemberCardProps) => {
         </div>
       </div>
 
+   {/* -----------On hover Edit and Delete Option Enable---------- */}
       {isHovered && (
         <div className="absolute top-4 right-4 flex space-x-2">
+          {/* ------Update User------- */}
           <EditMember memberInfo={memberInfo} />
-
-          <FaTrash
-            title="Delete Member"
-            className="text-white hover:text-gray-200 cursor-pointer"
-            size={20}
-          />
+          {/* ------Delete User--------- */}
+           <DeleteMember memberId={id}/>
         </div>
       )}
     </div>

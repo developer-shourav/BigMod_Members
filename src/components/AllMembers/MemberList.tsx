@@ -1,7 +1,8 @@
 
-import { FaLinkedin, FaFacebook, FaGithub, FaWhatsapp } from 'react-icons/fa';
+import MemberCard from '../Card/MemberCard/MemberCard';
+import AddMember from './AddMember';
 
-type Member = {
+export type MemberInfoType = {
   id: number;
   name: string;
   designation: string;
@@ -14,7 +15,7 @@ type Member = {
   image: string;
 };
 
-const initialMembers: Member[] = [
+const initialMembers: MemberInfoType[] = [
   {
     id: 1,
     name: 'John Doe',
@@ -60,45 +61,12 @@ const MemberList = () => {
 
 
         {/* -------------- Add Member Component ------------- */}
+         <AddMember/>
 
-         <div className="bg-white rounded-xl shadow-lg border-[2px] border-dashed border-red-400 flex justify-center items-center cursor-pointer">
-           <div className='cmn-btn'>
-             <button><span className='text-2xl'>+</span> Add</button>
-           </div>
-            
-          </div>
 
+        {/* -----------------All Members ------------------ */}
         {initialMembers.map((member) => (
-          <div key={member.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl relative">
-
-            <div className="bg-custom-gradient p-4 rounded-t-xl flex justify-center">
-              <img src={member.image} alt={member.name} className="w-28 h-28 rounded-full border-4 border-white -mt-12" />
-            </div>
-
-
-            <div className="p-6 text-center">
-              <h2 className="text-xl font-bold">{member.name}</h2>
-              <p className="text-gray-500">{member.designation}</p>
-              <p className="text-gray-500 mt-2">{member.email}</p>
-
-
-              <div className="flex justify-center space-x-4 mt-4">
-                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125 " size={24} />
-                </a>
-                <a href={member.facebook} target="_blank" rel="noopener noreferrer">
-                  <FaFacebook className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125 " size={24} />
-                </a>
-                <a href={member.github} target="_blank" rel="noopener noreferrer">
-                  <FaGithub className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125 " size={24} />
-                </a>
-                <a href={member.whatsapp} target="_blank" rel="noopener noreferrer">
-                  <FaWhatsapp className="text-red-600 hover:text-red-700 hover:rotate-[360deg] duration-1000 hover:scale-125 " size={24} />
-                </a>
-              </div>
-
-            </div>
-          </div>
+          <MemberCard key={member.id} memberInfo={member} />
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@
   display: inline-flex;
 }
 
-.cmn-btn a {
+.cmn-btn a, button {
   overflow: hidden;
   position: relative;
   display: inline-block;
@@ -34,7 +34,7 @@
   transition: all 0.5s ease-out 0s;
 }
 
-.cmn-btn a:before {
+.cmn-btn a:before, button:before {
   position: absolute;
   content: "";
   width: 100%;
@@ -51,10 +51,10 @@
   transition: all 0.5s ease-out 0s;
 }
 
-.cmn-btn a:hover {
+.cmn-btn a:hover, button:hover {
   box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
 }
 
-.cmn-btn a:hover:before {
+.cmn-btn a:hover:before, button:hover:before {
   height: 380%;
 }

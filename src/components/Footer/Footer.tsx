@@ -11,7 +11,7 @@ import { FiMail } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white py-10 mt-40">
+    <footer className="bg-[#1a1b1f] text-white py-20 mt-40">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <div className="w-full md:w-1/4 px-4 mb-8 md:mb-0">
@@ -20,45 +20,45 @@ const Footer = () => {
                 <img className="w-[150px]" src={bigModLogo} alt="Bigmod Logo" />
               </a>
             </div>
-            <address>
-              <h4 className="text-xl font-bold mb-2">Office</h4>
+            <div>
+              <h4 className="text-[25px] font-semibold mb-2 border-b-2 border-red-500 inline-block">Office</h4>
               <p>
                 Holding # 457, DIT Road, 3rd Floor, West Rampura, Dhaka-1219.
               </p>
-            </address>
-            <ul className="flex space-x-4 mt-4">
-              <li>
+            </div>
+            <ul className="flex gap-6 mt-4">
+              <li className="border p-2 rounded-lg border-[#9b9b9b38] hover:bg-red-600 hover:rotate-[360deg] duration-1000">
                 <a
                   href="https://www.facebook.com/"
                   target="_blank"
-                  className="hover:text-red-400"
+                  className=""
                 >
                   <FaFacebookF />
                 </a>
               </li>
-              <li>
+              <li className="border p-2 rounded-lg border-[#9b9b9b38] hover:bg-red-600 hover:rotate-[360deg] duration-1000">
                 <a
                   href="https://www.twitter.com/"
                   target="_blank"
-                  className="hover:text-red-400"
+                  className=""
                 >
                   <FaTwitter />
                 </a>
               </li>
-              <li>
+              <li className="border p-2 rounded-lg border-[#9b9b9b38] hover:bg-red-600 hover:rotate-[360deg] duration-1000">
                 <a
                   href="https://www.pinterest.com/"
                   target="_blank"
-                  className="hover:text-red-400"
+                  className=""
                 >
                   <FaPinterestP />
                 </a>
               </li>
-              <li>
+              <li className="border p-2 rounded-lg border-[#9b9b9b38] hover:bg-red-600 hover:rotate-[360deg] duration-1000">
                 <a
                   href="https://www.instagram.com/"
                   target="_blank"
-                  className="hover:text-red-400"
+                  className=""
                 >
                   <FaInstagram />
                 </a>
@@ -71,7 +71,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Strategy & Research
                 </a>
@@ -79,7 +79,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Web Development
                 </a>
@@ -87,7 +87,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Web Solution
                 </a>
@@ -95,7 +95,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Digital Marketing
                 </a>
@@ -103,7 +103,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   App Design
                 </a>
@@ -111,7 +111,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/service"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   App Development
                 </a>
@@ -124,7 +124,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/about"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   About Us
                 </a>
@@ -132,7 +132,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/services"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Services
                 </a>
@@ -140,7 +140,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/project"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Project
                 </a>
@@ -148,7 +148,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/blog"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Blog
                 </a>
@@ -156,7 +156,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/contact"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Career
                 </a>
@@ -164,7 +164,7 @@ const Footer = () => {
               <li className="mb-2">
                 <a
                   href="https://bigmodtech.com/services"
-                  className="hover:text-red-400"
+                  className="hover:text-red-500  duration-500"
                 >
                   Pricing Plan
                 </a>
@@ -178,13 +178,13 @@ const Footer = () => {
               <div>
                 <a
                   href="tel:+880255128071"
-                  className="block hover:text-red-400"
+                  className="block hover:text-red-500  duration-500"
                 >
                   +880 255 128 071
                 </a>
                 <a
                   href="tel:+8801515620108"
-                  className="block hover:text-red-400"
+                  className="block hover:text-red-500  duration-500"
                 >
                   +880 151 562 0108
                 </a>
@@ -194,7 +194,7 @@ const Footer = () => {
               <FiMail className="mr-3 text-xl text-red-500" />
               <a
                 href="mailto:info@bigmodtech.com"
-                className="hover:text-red-400"
+                className="hover:text-red-500  duration-500"
               >
                 info@bigmodtech.com
               </a>
@@ -215,16 +215,16 @@ const Footer = () => {
               </span>
             </div>
             <div className="flex space-x-4 text-sm">
-              <a href="#" className="hover:text-red-400">
+              <a href="#" className="hover:text-red-500  duration-500">
                 Privacy Policy
               </a>
-              <a href="#" className="hover:text-red-400">
+              <a href="#" className="hover:text-red-500  duration-500">
                 Terms of Use
               </a>
-              <a href="#" className="hover:text-red-400">
+              <a href="#" className="hover:text-red-500  duration-500">
                 Support Policy
               </a>
-              <a href="#" className="hover:text-red-400">
+              <a href="#" className="hover:text-red-500  duration-500">
                 Terms of Service
               </a>
             </div>

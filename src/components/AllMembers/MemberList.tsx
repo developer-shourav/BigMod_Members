@@ -66,7 +66,7 @@ const MemberList = () => {
 
         {/* -----------------All Members ------------------ */}
         {initialMembers.map((member) => (
-          <MemberCard key={member.id} memberInfo={member} />
+          <MemberCard  key={member.id} memberInfo={member} />
         ))}
       </div>
     </div>

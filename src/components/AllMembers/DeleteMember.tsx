@@ -8,17 +8,32 @@ type DeleteMemberProps = {
 
 const DeleteMember = ({ memberId, onDelete }: DeleteMemberProps) => {
   const handleDelete = () => {
-    const membersList = JSON.parse(localStorage.getItem("membersInfoList") || "[]");
-    const updatedMembers = membersList.filter((member: { id: number }) => member.id !== memberId);
-
-    localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
-    onDelete(memberId);
-
     Swal.fire({
-      title: 'Deleted!',
-      text: 'Member has been deleted successfully.',
-      icon: 'success',
-      confirmButtonText: 'OK'
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, delete",
+      cancelButtonText: "cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const membersList = JSON.parse(
+          localStorage.getItem("membersInfoList") || "[]"
+        );
+        const updatedMembers = membersList.filter(
+          (member: { id: number }) => member.id !== memberId
+        );
+
+        localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
+        onDelete(memberId);
+
+        Swal.fire({
+          title: "Deleted!",
+          text: "Member has been deleted successfully.",
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      }
     });
   };
 

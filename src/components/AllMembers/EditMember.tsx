@@ -2,9 +2,13 @@ import { FaEdit } from "react-icons/fa";
 import { Fragment, useState, ChangeEvent, FormEvent } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IoMdClose } from "react-icons/io";
-import { MemberCardProps } from "../Card/MemberCard/MemberCard";
+import { MemberInfoType } from "../AllMembers/MemberList";
 
-const EditMember = ({ memberInfo }: MemberCardProps) => {
+export type EditMemberProps = {
+  memberInfo: MemberInfoType;
+};
+
+const EditMember = ({ memberInfo }: EditMemberProps) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [formValues, setFormValues] = useState({
     image: memberInfo.image,

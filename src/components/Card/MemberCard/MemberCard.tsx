@@ -6,9 +6,10 @@ import DeleteMember from "../../AllMembers/DeleteMember";
 
 export type MemberCardProps = {
   memberInfo: MemberInfoType;
+  onDelete: (memberId: number) => void;
 };
 
-const MemberCard = ({ memberInfo}: MemberCardProps) => {
+const MemberCard = ({ memberInfo, onDelete}: MemberCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const {id, image, name, designation, email, linkedin, facebook, github, whatsapp } = memberInfo;
 
@@ -65,7 +66,7 @@ const MemberCard = ({ memberInfo}: MemberCardProps) => {
           {/* ------Update User------- */}
           <EditMember memberInfo={memberInfo} />
           {/* ------Delete User--------- */}
-           <DeleteMember memberId={id}/>
+           <DeleteMember  memberId={id} onDelete={onDelete} />
         </div>
       )}
     </div>

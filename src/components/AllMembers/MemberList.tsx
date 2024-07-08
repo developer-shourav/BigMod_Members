@@ -62,7 +62,8 @@ const MemberList = () => {
     const storedMembers = localStorage.getItem("membersInfoList");
     if (storedMembers) {
       setMembersList(JSON.parse(storedMembers));
-    } else {
+    } 
+    else {
       localStorage.setItem("membersInfoList", JSON.stringify(initialMembers));
       setMembersList(initialMembers);
     }
@@ -75,6 +76,13 @@ const MemberList = () => {
     localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
   };
 
+  /* -----------Add a new Member------------ */
+  const deleteMember = (memberId: number) => {
+    const updatedMembers = membersList.filter(member => member.id !== memberId);
+    setMembersList(updatedMembers);
+    localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
+  };
+
   return (
     <div id="addMember" className="my-16">
       <div className="grid md:grid-cols-4 gap-x-8 gap-y-[70px]">
@@ -83,7 +91,7 @@ const MemberList = () => {
 
         {/* -----------------All Members ------------------ */}
         {membersList.map((member) => (
-          <MemberCard key={member.id} memberInfo={member} />
+          <MemberCard key={member.id} onDelete={deleteMember} memberInfo={member} />
         ))}
       </div>
     </div>

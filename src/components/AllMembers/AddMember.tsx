@@ -3,6 +3,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { IoMdClose } from "react-icons/io";
 import { generateRandomId } from "../../utility/generateRandomId";
 import { MemberInfoType } from "./MemberList";
+import Swal from "sweetalert2";
 
 type AddMemberProps = {
   addMember: (newMember: MemberInfoType) => void;
@@ -38,13 +39,22 @@ const AddMember = ({ addMember }: AddMemberProps) => {
     /* ------Clear the form---------- */
     setFormValues(initialFormValues); 
     setIsOpenModal(false);
+
+    /* ---------------Add Success Message------- */
+    Swal.fire({
+      title: 'Success!',
+      text: 'Member has been added successfully.',
+      icon: 'success',
+      timer: 1800,
+      confirmButtonText: 'OK'
+    });
   };
 
   return (
     <>
       <div
         onClick={() => setIsOpenModal(true)}
-        className="bg-white rounded-xl shadow-lg hover:shadow-xl border-[2px] border-dashed border-red-400 flex justify-center items-center cursor-pointer"
+        className="bg-white rounded-xl shadow-lg hover:shadow-xl border-[2px] border-dashed border-red-400 flex justify-center items-center cursor-pointer min-h-[269px]"
       >
         <div className="cmn-btn">
           <button>

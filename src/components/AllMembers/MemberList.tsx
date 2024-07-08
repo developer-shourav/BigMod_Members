@@ -18,39 +18,39 @@ export type MemberInfoType = {
 const initialMembers: MemberInfoType[] = [
   {
     id: 1111,
-    name: "John Doe",
-    designation: "Frontend Developer",
-    email: "john.doe@example.com",
-    phone: "+1234567890",
-    linkedin: "https://linkedin.com/in/johndoe",
-    facebook: "https://facebook.com/johndoe",
-    github: "https://github.com/johndoe",
-    whatsapp: "https://wa.me/1234567890",
-    image: "https://i.ibb.co/dQk4R8Q/author3.png",
+    name: "Al Amin",
+    designation: "Software Engineer",
+    email: "almin.cont@gmail.com",
+    phone: "+8801515620108",
+    linkedin: "https://linkedin.com//in/alminal",
+    facebook: "https://www.facebook.com/almin.cont",
+    github: "https://github.com/alminAl",
+    whatsapp: "https://wa.me/+8801515620108",
+    image: "https://avatars.githubusercontent.com/u/68145918?v=4",
   },
   {
     id: 2222,
-    name: "Jane Smith",
+    name: "Sakal Sarkar",
     designation: "Full Stack Developer",
-    email: "jane.smith@example.com",
-    phone: "+0987654321",
-    linkedin: "https://linkedin.com/in/janesmith",
-    facebook: "https://facebook.com/janesmith",
-    github: "https://github.com/janesmith",
-    whatsapp: "https://wa.me/0987654321",
-    image: "https://i.ibb.co/PMP1Cz7/author2.png",
+    email: "sakal.satkhira@gmail.com",
+    phone: "+8801786533161",
+    linkedin: "https://linkedin.com",
+    facebook: "https://www.facebook.com/sakalbd.net/",
+    github: "https://github.com/sakalbd",
+    whatsapp: "https://wa.me/+8801786533161",
+    image: "https://avatars.githubusercontent.com/u/76899487?v=4",
   },
   {
     id: 3333,
-    name: "Alice Johnson",
-    designation: "UX/UI Designer",
-    email: "alice.johnson@example.com",
-    phone: "+1122334455",
-    linkedin: "https://linkedin.com/in/alicejohnson",
-    facebook: "https://facebook.com/alicejohnson",
-    github: "https://github.com/alicejohnson",
-    whatsapp: "https://wa.me/1122334455",
-    image: "https://i.ibb.co/0yRD7H6/author1.png",
+    name: "Shourav Rajbongshi",
+    designation: "Fronted Developer",
+    email: "developer.shourav1@gmail.com",
+    phone: "+8801932376388",
+    linkedin: "https://www.linkedin.com/in/developer-shourav",
+    facebook: "https://www.facebook.com/developer.shourav",
+    github: "https://github.com/developer-shourav",
+    whatsapp: "https://wa.me/+8801932376388",
+    image: "https://avatars.githubusercontent.com/u/85821015?v=4",
   },
 ];
 
@@ -81,6 +81,14 @@ const MemberList = () => {
     const updatedMembers = membersList.filter(member => member.id !== memberId);
     setMembersList(updatedMembers);
     localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
+
+    /* const storedMembers = localStorage.getItem("membersInfoList");
+  
+    if(storedMembersData){
+      console.log("Done");
+      
+      localStorage.removeItem("membersInfoList")
+    } */
   };
 
   return (

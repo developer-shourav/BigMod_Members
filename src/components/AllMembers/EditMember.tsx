@@ -3,12 +3,14 @@ import { Fragment, useState, ChangeEvent, FormEvent } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IoMdClose } from "react-icons/io";
 import { MemberInfoType } from "../AllMembers/MemberList";
+import Swal from "sweetalert2";
 
 export type EditMemberProps = {
   memberInfo: MemberInfoType;
+  updateMember: (updatedMember: MemberInfoType) => void;
 };
 
-const EditMember = ({ memberInfo }: EditMemberProps) => {
+const EditMember = ({ memberInfo, updateMember }: EditMemberProps) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const [formValues, setFormValues] = useState({
     image: memberInfo.image,
@@ -29,8 +31,14 @@ const EditMember = ({ memberInfo }: EditMemberProps) => {
 
   const handleEditMemberSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log(formValues);
+    const updatedMember = { ...memberInfo, ...formValues };
+    updateMember(updatedMember);
     setIsOpenModal(false);
+    Swal.fire({
+      icon: 'success',
+      title: 'Info Updated!',
+      text: 'The member information has been successfully updated.',
+    });
   };
 
   return (

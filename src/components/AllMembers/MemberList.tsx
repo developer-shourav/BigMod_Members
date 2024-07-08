@@ -61,9 +61,14 @@ const MemberList = () => {
     /* -----Checking Members Data available or not ----*/
     const storedMembers = localStorage.getItem("membersInfoList");
     if (storedMembers) {
-      setMembersList(JSON.parse(storedMembers));
-    } 
-    else {
+      const parsedMembers = JSON.parse(storedMembers);
+      if (parsedMembers.length === 0) {
+        localStorage.setItem("membersInfoList", JSON.stringify(initialMembers));
+        setMembersList(initialMembers);
+      } else {
+        setMembersList(parsedMembers);
+      }
+    } else {
       localStorage.setItem("membersInfoList", JSON.stringify(initialMembers));
       setMembersList(initialMembers);
     }
@@ -76,19 +81,20 @@ const MemberList = () => {
     localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
   };
 
-  /* -----------Add a new Member------------ */
+  /* ----------Update Member Data --------------- */
+  const updateMember = (updatedMember: MemberInfoType) => {
+    const updatedMembersList = membersList.map((member) =>
+      member.id === updatedMember.id ? updatedMember : member
+    );
+    setMembersList(updatedMembersList);
+    localStorage.setItem("membersInfoList", JSON.stringify(updatedMembersList));
+  };
+
+  /* -----------Delete a new Member------------ */
   const deleteMember = (memberId: number) => {
     const updatedMembers = membersList.filter(member => member.id !== memberId);
     setMembersList(updatedMembers);
     localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
-
-    /* const storedMembers = localStorage.getItem("membersInfoList");
-  
-    if(storedMembersData){
-      console.log("Done");
-      
-      localStorage.removeItem("membersInfoList")
-    } */
   };
 
   return (
@@ -99,7 +105,7 @@ const MemberList = () => {
 
         {/* -----------------All Members ------------------ */}
         {membersList.map((member) => (
-          <MemberCard key={member.id} onDelete={deleteMember} memberInfo={member} />
+          <MemberCard key={member.id}  memberInfo={member} updateMember={updateMember} onDelete={deleteMember} />
         ))}
       </div>
     </div>

@@ -6,10 +6,12 @@ import DeleteMember from "../../AllMembers/DeleteMember";
 
 export type MemberCardProps = {
   memberInfo: MemberInfoType;
+  updateMember: (updatedMember: MemberInfoType) => void;
   onDelete: (memberId: number) => void;
+
 };
 
-const MemberCard = ({ memberInfo, onDelete}: MemberCardProps) => {
+const MemberCard = ({ memberInfo, updateMember , onDelete}: MemberCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const {id, image, name, designation, email, linkedin, facebook, github, whatsapp } = memberInfo;
 
@@ -64,7 +66,7 @@ const MemberCard = ({ memberInfo, onDelete}: MemberCardProps) => {
       {isHovered && (
         <div className="absolute top-4 right-4 flex space-x-2">
           {/* ------Update User------- */}
-          <EditMember memberInfo={memberInfo} />
+          <EditMember memberInfo={memberInfo} updateMember={updateMember} />
           {/* ------Delete User--------- */}
            <DeleteMember  memberId={id} onDelete={onDelete} />
         </div>

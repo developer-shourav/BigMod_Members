@@ -209,7 +209,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 border-t border-gray-700 pt-6">
           <div className="flex flex-wrap items-center justify-between">
-            <div className="text-sm">
+            <div className="text-sm mb-5">
               <span>
                 &copy; 2024 <b>Bigmod Technologies</b>
               </span>

@@ -93,7 +93,7 @@ const MemberList = () => {
 
   return (
     <div id="addMember" className="my-16">
-      <div className="grid md:grid-cols-4 gap-x-8 gap-y-[70px]">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-[70px] mx-auto">
         {/* -------------- Add Member Component ------------- */}
         <AddMember addMember={addMember} />
 

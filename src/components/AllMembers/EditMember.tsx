@@ -45,7 +45,7 @@ const EditMember = ({ memberInfo, updateMember }: EditMemberProps) => {
     <>
       <FaEdit
         onClick={() => setIsOpenModal(true)}
-        className="text-[14px] md:text-[16px] lg:text-xl cursor-pointer text-white hover:text-gray-200"
+        className="text-xl cursor-pointer text-white hover:text-gray-200"
         title="Edit Member"
       />
       <Transition appear show={isOpenModal} as={Fragment}>

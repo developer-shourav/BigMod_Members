@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import MemberCard from "../Card/MemberCard/MemberCard";
 import AddMember from "./AddMember";
 
@@ -16,7 +17,7 @@ export type MemberInfoType = {
 
 const initialMembers: MemberInfoType[] = [
   {
-    id: 1,
+    id: 1111,
     name: "John Doe",
     designation: "Frontend Developer",
     email: "john.doe@example.com",
@@ -28,7 +29,7 @@ const initialMembers: MemberInfoType[] = [
     image: "https://i.ibb.co/dQk4R8Q/author3.png",
   },
   {
-    id: 2,
+    id: 2222,
     name: "Jane Smith",
     designation: "Full Stack Developer",
     email: "jane.smith@example.com",
@@ -40,7 +41,7 @@ const initialMembers: MemberInfoType[] = [
     image: "https://i.ibb.co/PMP1Cz7/author2.png",
   },
   {
-    id: 3,
+    id: 3333,
     name: "Alice Johnson",
     designation: "UX/UI Designer",
     email: "alice.johnson@example.com",
@@ -54,14 +55,34 @@ const initialMembers: MemberInfoType[] = [
 ];
 
 const MemberList = () => {
+  const [membersList, setMembersList] = useState<MemberInfoType[]>([]);
+
+  useEffect(() => {
+    /* -----Checking Members Data available or not ----*/
+    const storedMembers = localStorage.getItem("membersInfoList");
+    if (storedMembers) {
+      setMembersList(JSON.parse(storedMembers));
+    } else {
+      localStorage.setItem("membersInfoList", JSON.stringify(initialMembers));
+      setMembersList(initialMembers);
+    }
+  }, []);
+
+  /* -----------Add a new Member------------ */
+  const addMember = (newMember: MemberInfoType) => {
+    const updatedMembers = [...membersList, newMember];
+    setMembersList(updatedMembers);
+    localStorage.setItem("membersInfoList", JSON.stringify(updatedMembers));
+  };
+
   return (
     <div id="addMember" className="my-16">
-      <div className="grid md:grid-cols-4 gap-8">
+      <div className="grid md:grid-cols-4 gap-x-8 gap-y-[70px]">
         {/* -------------- Add Member Component ------------- */}
-        <AddMember />
+        <AddMember addMember={addMember} />
 
         {/* -----------------All Members ------------------ */}
-        {initialMembers.map((member) => (
+        {membersList.map((member) => (
           <MemberCard key={member.id} memberInfo={member} />
         ))}
       </div>

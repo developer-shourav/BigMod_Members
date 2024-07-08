@@ -1,20 +1,27 @@
 import { Fragment, useState, ChangeEvent, FormEvent } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { IoMdClose } from "react-icons/io";
+import { generateRandomId } from "../../utility/generateRandomId";
+import { MemberInfoType } from "./MemberList";
 
-const AddMember = () => {
+type AddMemberProps = {
+  addMember: (newMember: MemberInfoType) => void;
+};
+
+const AddMember = ({ addMember }: AddMemberProps) => {
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const [formValues, setFormValues] = useState({
-    image: "",
+  const initialFormValues = {
     name: "",
     designation: "",
-    phone: "",
     email: "",
+    phone: "",
     linkedin: "",
     facebook: "",
     github: "",
     whatsapp: "",
-  });
+    image: "",
+  };
+  const [formValues, setFormValues] = useState(initialFormValues);
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -22,8 +29,14 @@ const AddMember = () => {
   };
 
   const handleAddMemberSubmit = (event: FormEvent) => {
+    /* -------Prevent From's Default Behavior----- */
     event.preventDefault();
-    console.log(formValues);
+    /* ------ Generate Unique ID for New Member------*/
+    const id: number = generateRandomId();
+    const newMemberData: MemberInfoType = { id, ...formValues };
+    addMember(newMemberData);
+    /* ------Clear the form---------- */
+    setFormValues(initialFormValues); 
     setIsOpenModal(false);
   };
 
@@ -83,7 +96,6 @@ const AddMember = () => {
                       </span>
                     </div>
                   </Dialog.Title>
-                  {/* Form -----------------------------------------------------------*/}
                   <form onSubmit={handleAddMemberSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
@@ -168,7 +180,7 @@ const AddMember = () => {
                         <input
                           type="url"
                           className="w-full mt-2 bg-[#E9EDF4] p-1 lg:p-2 rounded-lg"
-                          placeholder="LinkedIn"
+                          placeholder="LinkedIn Link"
                           required
                           name="linkedin"
                           value={formValues.linkedin}
@@ -183,7 +195,7 @@ const AddMember = () => {
                         <input
                           type="url"
                           className="w-full mt-2 bg-[#E9EDF4] p-1 lg:p-2 rounded-lg"
-                          placeholder="Facebook"
+                          placeholder="Facebook Link"
                           name="facebook"
                           value={formValues.facebook}
                           onChange={handleInputChange}
@@ -197,7 +209,7 @@ const AddMember = () => {
                         <input
                           type="url"
                           className="w-full mt-2 bg-[#E9EDF4] p-1 lg:p-2 rounded-lg"
-                          placeholder="Github"
+                          placeholder="Github Link"
                           name="github"
                           required
                           value={formValues.github}
@@ -212,7 +224,7 @@ const AddMember = () => {
                         <input
                           type="text"
                           className="w-full mt-2 bg-[#E9EDF4] p-1 lg:p-2 rounded-lg"
-                          placeholder="WhatsApp"
+                          placeholder="WhatsApp Number"
                           name="whatsapp"
                           value={formValues.whatsapp}
                           onChange={handleInputChange}
@@ -225,7 +237,6 @@ const AddMember = () => {
                       </div>
                     </div>
                   </form>
-                  {/* Form --------------------------------------------------- */}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
